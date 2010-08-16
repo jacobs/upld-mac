@@ -28,6 +28,7 @@
 		B3018CDC12165198004DC9E0 /* libz.1.2.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B3018CDB12165198004DC9E0 /* libz.1.2.3.dylib */; };
 		B315C6441219B82D003D431B /* EMKeychainItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B315C6431219B82D003D431B /* EMKeychainItem.m */; };
 		B315C6711219BDF6003D431B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B315C6701219BDF6003D431B /* Security.framework */; };
+		B34E493F1219C201007CD9F5 /* License.txt in Resources */ = {isa = PBXBuildFile; fileRef = B34E493E1219C201007CD9F5 /* License.txt */; };
 		B3A1C1451215E47E000B70FB /* StatusItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = B3A1C1441215E47E000B70FB /* StatusItemView.m */; };
 		B3A1C1481215E5D1000B70FB /* StatusItemMenuDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B3A1C1471215E5D1000B70FB /* StatusItemMenuDelegate.m */; };
 		B3A1C1591215E6A8000B70FB /* status-active.png in Resources */ = {isa = PBXBuildFile; fileRef = B3A1C1561215E6A8000B70FB /* status-active.png */; };
@@ -83,6 +84,8 @@
 		B315C6421219B82D003D431B /* EMKeychainItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMKeychainItem.h; sourceTree = "<group>"; };
 		B315C6431219B82D003D431B /* EMKeychainItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMKeychainItem.m; sourceTree = "<group>"; };
 		B315C6701219BDF6003D431B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		B34E493C1219C13D007CD9F5 /* Readme.mdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Readme.mdown; sourceTree = "<group>"; };
+		B34E493E1219C201007CD9F5 /* License.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = License.txt; sourceTree = "<group>"; };
 		B3A1C1431215E47E000B70FB /* StatusItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusItemView.h; sourceTree = "<group>"; };
 		B3A1C1441215E47E000B70FB /* StatusItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusItemView.m; sourceTree = "<group>"; };
 		B3A1C1461215E5D1000B70FB /* StatusItemMenuDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusItemMenuDelegate.h; sourceTree = "<group>"; };
@@ -128,6 +131,7 @@
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B315C6701219BDF6003D431B /* Security.framework */,
 				B3018CD21216516C004DC9E0 /* SystemConfiguration.framework */,
 				B3018CD612165180004DC9E0 /* CoreServices.framework */,
 				B3018CDB12165198004DC9E0 /* libz.1.2.3.dylib */,
@@ -157,12 +161,12 @@
 		29B97314FDCFA39411CA2CEA /* UPLD Mac */ = {
 			isa = PBXGroup;
 			children = (
+				B34E49411219C219007CD9F5 /* Readme */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
-				B315C6701219BDF6003D431B /* Security.framework */,
 			);
 			name = "UPLD Mac";
 			sourceTree = "<group>";
@@ -295,6 +299,15 @@
 			name = EMKeychainItem;
 			sourceTree = "<group>";
 		};
+		B34E49411219C219007CD9F5 /* Readme */ = {
+			isa = PBXGroup;
+			children = (
+				B34E493C1219C13D007CD9F5 /* Readme.mdown */,
+				B34E493E1219C201007CD9F5 /* License.txt */,
+			);
+			name = Readme;
+			sourceTree = "<group>";
+		};
 		B3BF85491219AC5700F34441 /* MPLoginItems */ = {
 			isa = PBXGroup;
 			children = (
@@ -355,6 +368,7 @@
 				B3A1C1591215E6A8000B70FB /* status-active.png in Resources */,
 				B3A1C15A1215E6A8000B70FB /* status-alt.png in Resources */,
 				B3A1C15B1215E6A8000B70FB /* status.png in Resources */,
+				B34E493F1219C201007CD9F5 /* License.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
