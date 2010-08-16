@@ -11,7 +11,8 @@
 @implementation UPLD_MacAppDelegate
 
 @synthesize statusItem, statusItemView, statusItemMenu, preferencesWindow,
-textPasteWindow, textPasteView, textPasteLabel;
+usernameTextField, passwordTextField, startOnLoginButton, textPasteWindow,
+textPasteView, textPasteLabel;
 
 - (id)init {
 
@@ -20,7 +21,7 @@ textPasteWindow, textPasteView, textPasteLabel;
         [NSData_Base64 initialize];
         NSDictionary *defaults = [NSDictionary dictionaryWithObjectsAndKeys:
                                   @"http://upld.in/", @"serverDomain",
-                                  @"", @"username", @"", @"password",
+                                  @"", @"username",
                                   [NSNumber numberWithBool:NO], @"checkUpdates",
                                   [NSNumber numberWithBool:NO], @"startOnLogin",
                                   [NSNumber numberWithBool:NO], @"autoScreen",
@@ -49,27 +50,57 @@ textPasteWindow, textPasteView, textPasteLabel;
                               autorelease];
     [statusItemMenuDelegate setController:self];
     [statusItemMenu setDelegate:statusItemMenuDelegate];
-
-    if ([[[[NSUserDefaultsController sharedUserDefaultsController] values]
-    valueForKey:@"username"] compare:@"" options:NSCaseInsensitiveSearch] ==
-    NSOrderedSame ||
-    [[[[NSUserDefaultsController sharedUserDefaultsController] values]
-    valueForKey:@"password"] compare:@"" options:NSCaseInsensitiveSearch] ==
-    NSOrderedSame) {
-        [self showPreferences:self];
-    } else {
-        [NSApp hide:self];
-    }
 }
 
 - (void)awakeFromNib {
 
     [textPasteWindow setContentBorderThickness:35 forEdge:NSMinYEdge];
     [textPasteView setTextContainerInset:NSMakeSize(4, 8)];
+
+    EMKeychainItem *keychainItem = [EMGenericKeychainItem
+                                    genericKeychainItemForService:@"UPLD"
+        withUsername:[[[NSUserDefaultsController sharedUserDefaultsController]
+                      values] valueForKey:@"username"]];
+    if (keychainItem) {
+        [usernameTextField setStringValue:keychainItem.username];
+        [passwordTextField setStringValue:keychainItem.password];
+        [NSApp hide:self];
+    } else {
+        [self showPreferences:self];
+    }
+
+}
+
+- (void)applicationWillTerminate:(NSNotification *)notification {
+
+    EMGenericKeychainItem *keychainItem = [EMGenericKeychainItem
+                                    genericKeychainItemForService:@"UPLD"
+                                    withUsername:[usernameTextField
+                                                  stringValue]];
+    if (keychainItem) {
+        keychainItem.username = [usernameTextField stringValue];
+        keychainItem.password = [passwordTextField stringValue];
+    } else {
+        [EMGenericKeychainItem addGenericKeychainItemForService:@"UPLD"
+                                    withUsername:[usernameTextField stringValue]
+                                    password:[passwordTextField stringValue]];
+    }
 }
 
 #pragma mark -
 #pragma mark Interface Builder actions
+
+- (IBAction)updateLoginItem:(id)sender {
+
+    NSURL *bundleURL = [NSURL fileURLWithPath:[[NSBundle mainBundle]
+                                               bundlePath]];
+    if ([startOnLoginButton state] == NSOnState &&
+    [MPLoginItems loginItemExists:bundleURL] == NO)
+        [MPLoginItems addLoginItemWithURL:bundleURL];
+    else if ([startOnLoginButton state] == NSOffState &&
+    [MPLoginItems loginItemExists:bundleURL] == YES)
+        [MPLoginItems removeLoginItemWithURL:bundleURL];
+}
 
 - (IBAction)showAboutPanel:(id)sender {
 
@@ -107,13 +138,9 @@ textPasteWindow, textPasteView, textPasteLabel;
     NSURL *url = [NSURL URLWithString:[NSString
                 stringWithFormat:@"%@api/shorten", [[[NSUserDefaultsController
         sharedUserDefaultsController] values] valueForKey:@"serverDomain"]]];
-    NSString *username = [NSData_Base64 encode:[[NSString
-                                    stringWithString:[[[NSUserDefaultsController
-                sharedUserDefaultsController] values] valueForKey:@"username"]]
+    NSString *username = [NSData_Base64 encode:[[usernameTextField stringValue]
                                     dataUsingEncoding:NSUTF8StringEncoding]];
-    NSString *password = [NSData_Base64 encode:[[NSString
-                                    stringWithString:[[[NSUserDefaultsController
-                sharedUserDefaultsController] values] valueForKey:@"password"]]
+    NSString *password = [NSData_Base64 encode:[[passwordTextField stringValue]
                                     dataUsingEncoding:NSUTF8StringEncoding]];
 
     ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
@@ -129,13 +156,9 @@ textPasteWindow, textPasteView, textPasteLabel;
     NSURL *url = [NSURL URLWithString:[NSString
                 stringWithFormat:@"%@api/paste", [[[NSUserDefaultsController
         sharedUserDefaultsController] values] valueForKey:@"serverDomain"]]];
-    NSString *username = [NSData_Base64 encode:[[NSString
-                                    stringWithString:[[[NSUserDefaultsController
-                sharedUserDefaultsController] values] valueForKey:@"username"]]
+    NSString *username = [NSData_Base64 encode:[[usernameTextField stringValue]
                                     dataUsingEncoding:NSUTF8StringEncoding]];
-    NSString *password = [NSData_Base64 encode:[[NSString
-                                    stringWithString:[[[NSUserDefaultsController
-                sharedUserDefaultsController] values] valueForKey:@"password"]]
+    NSString *password = [NSData_Base64 encode:[[passwordTextField stringValue]
                                     dataUsingEncoding:NSUTF8StringEncoding]];
 
     ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
@@ -151,15 +174,11 @@ textPasteWindow, textPasteView, textPasteLabel;
     NSURL *url = [NSURL URLWithString:[NSString
                 stringWithFormat:@"%@api/upload", [[[NSUserDefaultsController
         sharedUserDefaultsController] values] valueForKey:@"serverDomain"]]];
-    NSString *username = [NSData_Base64 encode:[[NSString
-                                    stringWithString:[[[NSUserDefaultsController
-                sharedUserDefaultsController] values] valueForKey:@"username"]]
+    NSString *username = [NSData_Base64 encode:[[usernameTextField stringValue]
                                     dataUsingEncoding:NSUTF8StringEncoding]];
-    NSString *password = [NSData_Base64 encode:[[NSString
-                                    stringWithString:[[[NSUserDefaultsController
-                sharedUserDefaultsController] values] valueForKey:@"password"]]
+    NSString *password = [NSData_Base64 encode:[[passwordTextField stringValue]
                                     dataUsingEncoding:NSUTF8StringEncoding]];
-    
+
     ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
     [request setUsername:username];
     [request setPassword:password];

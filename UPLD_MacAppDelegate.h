@@ -10,6 +10,8 @@
 #import "ASIFormDataRequest.h"
 #import "JSON.h"
 #import "NSData+Base64.h"
+#import "EMKeychainItem.h"
+#import "MPLoginItems.h"
 #import "StatusItemView.h"
 #import "StatusItemMenuDelegate.h"
 
@@ -21,6 +23,8 @@
     NSMenu *statusItemMenu;
     StatusItemMenuDelegate *statusItemMenuDelegate;
     NSWindow *preferencesWindow;
+    NSTextField *usernameTextField, *passwordTextField;
+    NSButton *startOnLoginButton;
     NSWindow *textPasteWindow;
     NSTextView *textPasteView;
     NSTextField *textPasteLabel;
@@ -37,11 +41,14 @@
 @property (assign) StatusItemView *statusItemView;
 @property (assign) IBOutlet NSMenu *statusItemMenu;
 @property (assign) IBOutlet NSWindow *preferencesWindow;
+@property (assign) IBOutlet NSTextField *usernameTextField, *passwordTextField;
+@property (assign) IBOutlet NSButton *startOnLoginButton;
 @property (assign) IBOutlet NSWindow *textPasteWindow;
 @property (assign) IBOutlet NSTextView *textPasteView;
 @property (assign) IBOutlet NSTextField *textPasteLabel;
 
 // Interface Builder actions
+- (IBAction)updateLoginItem:(id)sender;
 - (IBAction)showAboutPanel:(id)sender;
 - (IBAction)showPreferences:(id)sender;
 - (IBAction)showTextPaste:(id)sender;

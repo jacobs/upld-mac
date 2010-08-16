@@ -26,12 +26,15 @@
 		B3018CD31216516C004DC9E0 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3018CD21216516C004DC9E0 /* SystemConfiguration.framework */; };
 		B3018CD712165180004DC9E0 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3018CD612165180004DC9E0 /* CoreServices.framework */; };
 		B3018CDC12165198004DC9E0 /* libz.1.2.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B3018CDB12165198004DC9E0 /* libz.1.2.3.dylib */; };
+		B315C6441219B82D003D431B /* EMKeychainItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B315C6431219B82D003D431B /* EMKeychainItem.m */; };
+		B315C6711219BDF6003D431B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B315C6701219BDF6003D431B /* Security.framework */; };
 		B3A1C1451215E47E000B70FB /* StatusItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = B3A1C1441215E47E000B70FB /* StatusItemView.m */; };
 		B3A1C1481215E5D1000B70FB /* StatusItemMenuDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B3A1C1471215E5D1000B70FB /* StatusItemMenuDelegate.m */; };
 		B3A1C1591215E6A8000B70FB /* status-active.png in Resources */ = {isa = PBXBuildFile; fileRef = B3A1C1561215E6A8000B70FB /* status-active.png */; };
 		B3A1C15A1215E6A8000B70FB /* status-alt.png in Resources */ = {isa = PBXBuildFile; fileRef = B3A1C1571215E6A8000B70FB /* status-alt.png */; };
 		B3A1C15B1215E6A8000B70FB /* status.png in Resources */ = {isa = PBXBuildFile; fileRef = B3A1C1581215E6A8000B70FB /* status.png */; };
 		B3A1C2421215EEF9000B70FB /* StatusOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = B3A1C2411215EEF9000B70FB /* StatusOverlayView.m */; };
+		B3BF85471219AC5400F34441 /* MPLoginItems.m in Sources */ = {isa = PBXBuildFile; fileRef = B3BF85461219AC5400F34441 /* MPLoginItems.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +80,9 @@
 		B3018CD612165180004DC9E0 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
 		B3018CDB12165198004DC9E0 /* libz.1.2.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.3.dylib; path = usr/lib/libz.1.2.3.dylib; sourceTree = SDKROOT; };
 		B3018CF61216536C004DC9E0 /* ASIProgressDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIProgressDelegate.h; sourceTree = "<group>"; };
+		B315C6421219B82D003D431B /* EMKeychainItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMKeychainItem.h; sourceTree = "<group>"; };
+		B315C6431219B82D003D431B /* EMKeychainItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMKeychainItem.m; sourceTree = "<group>"; };
+		B315C6701219BDF6003D431B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		B3A1C1431215E47E000B70FB /* StatusItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusItemView.h; sourceTree = "<group>"; };
 		B3A1C1441215E47E000B70FB /* StatusItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusItemView.m; sourceTree = "<group>"; };
 		B3A1C1461215E5D1000B70FB /* StatusItemMenuDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusItemMenuDelegate.h; sourceTree = "<group>"; };
@@ -86,6 +92,8 @@
 		B3A1C1581215E6A8000B70FB /* status.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = status.png; sourceTree = "<group>"; };
 		B3A1C2401215EEF9000B70FB /* StatusOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusOverlayView.h; sourceTree = "<group>"; };
 		B3A1C2411215EEF9000B70FB /* StatusOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusOverlayView.m; sourceTree = "<group>"; };
+		B3BF85451219AC5400F34441 /* MPLoginItems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPLoginItems.h; sourceTree = "<group>"; };
+		B3BF85461219AC5400F34441 /* MPLoginItems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPLoginItems.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +105,7 @@
 				B3018CD31216516C004DC9E0 /* SystemConfiguration.framework in Frameworks */,
 				B3018CD712165180004DC9E0 /* CoreServices.framework in Frameworks */,
 				B3018CDC12165198004DC9E0 /* libz.1.2.3.dylib in Frameworks */,
+				B315C6711219BDF6003D431B /* Security.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,6 +118,8 @@
 				B3018C6112164E04004DC9E0 /* ASIHTTPRequest */,
 				B3018BE812163B22004DC9E0 /* JSON */,
 				B3018C0F12163CC9004DC9E0 /* NSData+Base64 */,
+				B315C6451219B833003D431B /* EMKeychainItem */,
+				B3BF85491219AC5700F34441 /* MPLoginItems */,
 				B3018C0E12163CBB004DC9E0 /* Source */,
 			);
 			name = Classes;
@@ -151,6 +162,7 @@
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
+				B315C6701219BDF6003D431B /* Security.framework */,
 			);
 			name = "UPLD Mac";
 			sourceTree = "<group>";
@@ -274,6 +286,24 @@
 			path = Tests;
 			sourceTree = "<group>";
 		};
+		B315C6451219B833003D431B /* EMKeychainItem */ = {
+			isa = PBXGroup;
+			children = (
+				B315C6421219B82D003D431B /* EMKeychainItem.h */,
+				B315C6431219B82D003D431B /* EMKeychainItem.m */,
+			);
+			name = EMKeychainItem;
+			sourceTree = "<group>";
+		};
+		B3BF85491219AC5700F34441 /* MPLoginItems */ = {
+			isa = PBXGroup;
+			children = (
+				B3BF85451219AC5400F34441 /* MPLoginItems.h */,
+				B3BF85461219AC5400F34441 /* MPLoginItems.m */,
+			);
+			name = MPLoginItems;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -351,6 +381,8 @@
 				B3018CA812164E05004DC9E0 /* ASIHTTPRequest.m in Sources */,
 				B3018CA912164E05004DC9E0 /* ASIInputStream.m in Sources */,
 				B3018CAA12164E05004DC9E0 /* ASINetworkQueue.m in Sources */,
+				B3BF85471219AC5400F34441 /* MPLoginItems.m in Sources */,
+				B315C6441219B82D003D431B /* EMKeychainItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
