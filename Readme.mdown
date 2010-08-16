@@ -3,6 +3,15 @@
 UPLD Mac is a simple menubar application for Mac that allows you to shorten
 URLs, paste text, and upload files to a server running the UPLD web app.
 
+## Usage
+
+Using UPLD Mac with a custom installation of UPLD on your server is quite easy.
+The only thing you may want to do is change the ULDefaultServer key in the
+application's Info.plist file to the URL of your server. To do this, open the
+.app bundle's contents by right-clicking it and clicking "Show Package
+Contents", then open the Info.plist file and change ULDefaultServer to the URL
+of your server.
+
 ## License
 
 Copyright (c) 2010 Austin Gatchell
