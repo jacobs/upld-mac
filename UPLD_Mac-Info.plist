@@ -30,5 +30,7 @@
 	<string>NSApplication</string>
 	<key>LSUIElement</key>
 	<true/>
+	<key>ULDefaultServer</key>
+	<string>http://upld.in/</string>
 </dict>
 </plist>

@@ -14,13 +14,18 @@
 usernameTextField, passwordTextField, startOnLoginButton, textPasteWindow,
 textPasteView, textPasteLabel;
 
+#pragma mark -
+#pragma mark Application Setup
+
 - (id)init {
 
     if (self = [super init]) {
 
         [NSData_Base64 initialize];
+        NSString *defaultServer = [NSString stringWithString:[[NSBundle
+                    mainBundle] objectForInfoDictionaryKey:@"ULDefaultServer"]];
         NSDictionary *defaults = [NSDictionary dictionaryWithObjectsAndKeys:
-                                  @"http://upld.in/", @"serverDomain",
+                                  defaultServer, @"serverDomain",
                                   @"", @"username",
                                   [NSNumber numberWithBool:NO], @"checkUpdates",
                                   [NSNumber numberWithBool:NO], @"startOnLogin",
